@@ -7,7 +7,7 @@ def wrangle_df(df):
     and changes date columns to the datetime data type.'''
     
     # Sets the index of the DataFrame to the date
-    df.set_index('date', inplpdates proace=True)
+    df.set_index('date', inplace=True)
     
     #Updates program ID numbers to their respective program titles:
     df.program_id = df.program_id.map({1.0:'full_stack_php', 2.0:'full_stack_java', 3.0:'data_science', 4.0:'front_end_programming'})
