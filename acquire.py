@@ -53,10 +53,10 @@ def get_cohort_df():
     This function reads in zillow data from Codeup database, writes data to
     a csv file if a local file does not exist, and returns a df.
     '''
-    if os.path.isfile('carriculum.csv'):
+    if os.path.isfile('curriculum.csv'):
         
         # If csv file exists read in data from csv file.
-        df = pd.read_csv('carriculum.csv', index_col=0)
+        df = pd.read_csv('curriculum.csv', index_col=0)
         
     else:
         
@@ -64,7 +64,7 @@ def get_cohort_df():
         df = get_cohort_sql()
         
         # Cache data
-        df.to_csv('carriculum.csv')
+        df.to_csv('curriculum.csv')
         
     return df
 
