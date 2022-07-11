@@ -28,7 +28,7 @@ def get_cohort_sql():
 
     ''' this function calls a sql file from the codeup database and creates a data frame from the curriculum db.     
     '''
-    query = '''SELECT * FROM logs   LEFT JOIN  cohorts ON logs.cohort_id = cohorts.id;'''
+    query = '''SELECT * FROM logs LEFT JOIN cohorts ON logs.cohort_id = cohorts.id;'''
             
 
     df = pd.read_sql(query, get_connection('curriculum_logs'))
@@ -36,7 +36,7 @@ def get_cohort_sql():
     return df
 
 
- #this function gets the zillow data thats already saved as a csv file from the zillow data base        
+ #this function gets the zillow data thats already saved as a csv file from the Codeup database        
 def get_cohort_df():
     '''
     This function reads in curriculum log data from Codeup database, writes data to
