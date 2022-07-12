@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd 
 
 def wrangle_df(df):
     
@@ -12,10 +12,13 @@ def wrangle_df(df):
     ## Drops unneeded or duplicate columns:
     df.drop(columns=['id','slack','deleted_at'],inplace = True)
     
+    #Adding a date_time column that combines date and time as strings and converts them to datetime format:
+    df['date_time'] = pd.to_datetime(df['date']+ ' ' + df['time'])
+    
     #Creates a list of columns containing relevant date data for logs:
-    date_cols = ['date','time','start_date', 'end_date', 'created_at', 'updated_at']
+    date_cols = ['date', 'start_date', 'end_date', 'created_at', 'updated_at']
     
     #Iterates through list of dates to change them to datetime data type:
     for col in date_cols: 
         df[col] = pd.to_datetime(df[col])
-    return df   
+    return df  
