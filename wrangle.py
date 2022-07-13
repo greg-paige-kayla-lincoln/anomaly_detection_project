@@ -33,7 +33,7 @@ def wrangle_lincoln(df):
     mapping program codes to program ID numbers, drops unneeded or duplicated columns, 
     and changes date columns to the datetime data type.'''
     # add date as index
-
+    # this code converts the date time into index
     df["date_time"] = pd.to_datetime(df['date'] + df['time'], format='%Y-%m-%d%H:%M:%S')
     df.set_index('date_time', inplace=True)
 
