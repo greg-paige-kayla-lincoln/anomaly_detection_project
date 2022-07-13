@@ -24,9 +24,6 @@ def wrangle_df(df):
     return df  
 
 
-
-
-
 def wrangle_lincoln(df):
     
     '''This function takes in a DataFrame of curriculum access logs, does some basic wrangling like 
@@ -50,3 +47,18 @@ def wrangle_lincoln(df):
     for col in date_cols: 
         df[col] = pd.to_datetime(df[col])
     return df 
+
+#Defining the function that adds the program type column based on program_id:
+def program_type(df):
+    #Dropping Lines With Null Values:
+    df = df.dropna()
+    #Creating an empty column on the DataFrame:
+    df['program_type'] = pd.Series()
+    #Calling type 'web' if program_id is not data_science
+    if df.program_id != 'data_science':
+        df.program_type ='web'
+    #Creating type 'data' if program_id is data:
+    elif df.program_id == 'data_science':
+        df.program_type = 'data'
+    #Returning DataFrame with new program_type column:
+    return df
